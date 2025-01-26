@@ -1,37 +1,50 @@
-@font-face {
+:root{
+    --soft-white:#edf2f7;
+    --normal-white:#fafafa;
+    --purple:#6a11cb;
+    --dark-purple:#4e3fc6;
+    --light-blue:#2575fc;
+    --violet:#a35bff;
+    --teal-grey:#2c3e50;
+    --tangerine:#e74c3c;
+    --orange:#f39c12;
+    --teal:#1abc9c;
+    --sky-blue:#3498db;
+    --greenish-white:#fff8e6;
+}
+@font-face{
     font-family: 'Hanken Grotesk';
     src: url('./fonts/HankenGrotesk-VariableFont_wght.ttf') format(truetype);
     font-weight:100 900;
     font-style:normal;
 }
-body {
+body{
     font-family: 'Hanken Grotesk', Arial, sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #edf2f7;
+    background: var(--soft-white);
 }
-
-.container {
+.container{
     display: flex;
-    background: white;
+    background: var(--normal-white);
     border-radius: 16px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     max-width: 800px;
     width: 100%;
 }
-
-.result, .summary {
+/* Result screen CSS, left side*/
+.result, .summary{
     padding: 40px;
 }
-
-.result {
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    color: white;
+.result{
+    background: linear-gradient(135deg, var(--purple), var(--light-blue));
+    color: var(--normal-white);
     text-align: center;
     flex: 1;
     display: flex;
@@ -39,8 +52,7 @@ body {
     justify-content: center;
     align-items: center;
 }
-
-.result .score {
+.result .score{
     margin: 20px 0;
     position: relative;
     font-size: 48px;
@@ -48,8 +60,8 @@ body {
     width: 140px;
     height: 140px;
     border-radius: 50%;
-    background: linear-gradient(180deg, #4e3fc6, #a35bff);
-    color: white;
+    background: linear-gradient(180deg, var(--dark-purple), var(--violet));
+    color: var(--normal-white);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -58,7 +70,7 @@ body {
     line-height: 1.2;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-.result .score::before {
+.result .score::before{
     content: "";
     position: absolute;
     top: -10px;
@@ -69,44 +81,38 @@ body {
     background: rgba(255, 255, 255, 0.15);
     z-index: -1;
 }
-
-.result .score span {
+.result .score span{
     font-size: 48px;
     font-weight: bold;
 }
-
-.result .score p {
+.result .score p{
     font-size: 16px;
     margin: 0;
 }
-
-.result .great {
+.result .great{
     font-size: 24px;
     font-weight: bold;
     margin: 10px 0;
 }
-
-.summary {
+/* Summary screen CSS, right side*/
+.summary{
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-
-.summary h3 {
+.summary h3{
     font-size: 24px;
     margin-bottom: 20px;
     font-weight: bold;
-    color: #2c3e50;
+    color: var(--teal-grey);
 }
-
-#summary-container {
+#summary-container{
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
-
-.summary-item {
+.summary-item{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -116,52 +122,88 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-size: 16px;
     font-weight: 500;
-    color: #2c3e50;
+    color: var(--teal-grey);
 }
-
-.summary-item img {
+.summary-item img{
     width: 20px;
     height: 20px;
     margin-right: 10px;
 }
-
-.summary-item div {
+.summary-item div{
     display: flex;
     align-items: center;
     gap: 10px;
 }
-
-.summary-item:nth-child(1) {
-    background: #ffe6e6;
-    color: #e74c3c;
+.summary-item:nth-child(1){
+    background: var(--greenish-white);
+    color: var(--tangerine);
 }
 
-.summary-item:nth-child(2) {
-    background: #fff8e6;
-    color: #f39c12;
+.summary-item:nth-child(2){
+    background: var(--greenish-white);
+    color: var(--orange);
 }
-
-.summary-item:nth-child(3) {
-    background: #e6fff8;
-    color: #1abc9c;
+.summary-item:nth-child(3){
+    background: var(--greenish-white);
+    color: var(--teal);
 }
-
-.summary-item:nth-child(4) {
-    background: #e6e6ff;
-    color: #3498db;
+.summary-item:nth-child(4){
+    background: var(--greenish-white);
+    color: var(--sky-blue);
 }
-
-button {
+button{
     margin-top: 20px;
     padding: 15px;
     border: none;
     border-radius: 25px;
-    background: #2c3e50;
-    color: white;
+    background: var(--teal-grey);
+    color: var(--normal-white);
     font-size: 18px;
     cursor: pointer;
     transition: background 0.3s ease;
 }
-button:hover {
-    background: #4e3fc6;
+button:hover{
+    background: var(--dark-purple);
+}
+/* footer and copyright CSS*/
+.footer-area{
+    margin:50px auto 50px auto;
+}
+.footer-area a{
+    font-size:20px;
+    text-decoration:none;
+    color: var(--teal-grey);
+}
+.footer-area a:hover{
+    color: var(--light-blue);
+}
+/* Media query for screens smaller than 768px (tablet or mobile) */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack the sections vertically */
+        max-width: 90%; /* Reduce the width to fit smaller screens */
+        width: 100%;
+        margin: 0 auto; /* Center the container */
+    }
+    
+    .result, .summary {
+        padding: 20px; /* Reduce padding for smaller screens */
+    }
+    .result {
+        border-radius: 16px 16px 0 0; /* Round only the top corners */
+    }
+    .summary {
+        border-radius: 0 0 16px 16px; /* Round only the bottom corners */
+    }
+    .summary h3 {
+        font-size: 20px; /* Slightly smaller heading */
+    }
+    #summary-container {
+        gap: 10px; /* Reduce spacing between summary items */
+    }
+    button {
+        padding: 10px; /* Adjust button size */
+        font-size: 16px;
+        border-radius: 20px;
+    }
 }
